@@ -1,17 +1,24 @@
 import * as vscode from 'vscode';
+import typewriterSounds from './typewriterSounds';
 
 export function activate(context: vscode.ExtensionContext) {
+	// console.log((vscode.window as any).AudioContext);
+	// console.log((vscode.window as any).webkitAudioContext);
+	// :(
 
-	console.log('Congratulations, your extension "typewritersounds" is now active!');
-
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+	const disposable1 = vscode.commands.registerCommand('typewritersounds.enable', () => {
+		typewriterSounds.enable();
 	});
 
-	context.subscriptions.push(disposable);
+	const disposable2 = vscode.commands.registerCommand('typewritersounds.disable', () => {
+		typewriterSounds.disable();
+	});
+
+	context.subscriptions.push(disposable1, disposable2);
+
+	vscode.workspace.onDidChangeTextDocument(typewriterSounds.onTextDocumentChange);
 }
 
-export function deactivate() {}
+export function deactivate() {
+
+}
