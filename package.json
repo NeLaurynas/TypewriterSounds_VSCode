@@ -1,0 +1,19 @@
+{
+  "name": "typewritersounds",
+  "version": "0.0.1",
+  "description": "Typewriter Sounds for Visual Studio Code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeLaurynas/TypewriterSounds_VSCode.git"
+  },
+  "author": "Laurynas 'Deviltry' K.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NeLaurynas/TypewriterSounds_VSCode/issues"
+  },
+  "homepage": "https://github.com/NeLaurynas/TypewriterSounds_VSCode#readme"
+}
