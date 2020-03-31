@@ -35,27 +35,35 @@ export default class SoundCollection {
 		return this._spaceSound;
 	}
 
-	getEnterSound(): string {
-		if (!this._enterSoundLong) {
+	getEnterSound(mode: string): string {
+		if (!this._enterSoundLong || mode === 'off') {
 			return this._enterSound;
 		} else {
-			// todo: settings for enabling long sounds
-			if (this._getRandom(2) === 1) {
-				return this._enterSound;
+			if (mode === 'random') {
+				if (this._getRandom(2) === 1) {
+					return this._enterSound;
+				} else {
+					return this._enterSoundLong;
+				}
 			} else {
+				// only long sound
 				return this._enterSoundLong;
 			}
 		}
 	}
 
-	getDeleteSound(): string {
-		if (!this._deleteSoundLong) {
+	getDeleteSound(mode: string): string {
+		if (!this._deleteSoundLong || mode === 'off') {
 			return this._deleteSound;
 		} else {
-			// todo: settings for enabling long sounds
-			if (this._getRandom(2) === 1) {
-				return this._deleteSound;
+			if (mode === 'random') {
+				if (this._getRandom(2) === 1) {
+					return this._deleteSound;
+				} else {
+					return this._deleteSoundLong;
+				}
 			} else {
+				// only long sound
 				return this._deleteSoundLong;
 			}
 		}

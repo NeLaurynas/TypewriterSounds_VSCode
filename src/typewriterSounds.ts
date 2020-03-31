@@ -1,18 +1,18 @@
-import { TextDocumentChangeEvent } from 'vscode';
+import { TextDocumentChangeEvent, workspace } from 'vscode';
 import SoundCollection from './soundCollection';
 import player from './player';
 
 class TypewriterSounds {
 	private _sounds: Map<string, SoundCollection>;
-	private _collection: string;
+	private _collection?: string;
 	private _enabled: boolean = false;
 	private _activeCollection?: SoundCollection;
+	private _enterMode?: string;
+	private _deleteMode?: string;
 
 	constructor() {
 		this.onTextDocumentChange = this.onTextDocumentChange.bind(this);
-
-		// todo: add more sound collections
-		this._collection = 'default';
+		this.reloadConfig = this.reloadConfig.bind(this);
 
 		this._sounds = new Map<string, SoundCollection>();
 
@@ -26,7 +26,22 @@ class TypewriterSounds {
 			'enter_long'
 		));
 
-		this._activeCollection = this._sounds.get('default')!;
+		this.reloadConfig();
+	}
+
+	reloadConfig() {
+		const settings =  workspace.getConfiguration('typewritersounds');
+		this._collection = settings.theme;
+		this._activeCollection = this._sounds.get(this._collection!)!;
+
+		this._enterMode = settings.longEnterSound;
+		this._deleteMode = settings.longDeleteSound;
+
+		if (settings.enabled) {
+			this.enable();
+		} else {
+			this.disable();
+		}
 	}
 
 	enable() {
@@ -50,11 +65,11 @@ class TypewriterSounds {
 		const text = evt.contentChanges[0].text;
 
 		if (text === '') {
-			player.play(this._activeCollection!.getDeleteSound());
+			player.play(this._activeCollection!.getDeleteSound(this._deleteMode!));
 		} else if (text === ' ') {
 			player.play(this._activeCollection!.getSpaceSound());
 		} else if (text.indexOf('\n') !== -1) {
-			player.play(this._activeCollection!.getEnterSound());
+			player.play(this._activeCollection!.getEnterSound(this._enterMode!));
 		} else {
 			player.play(this._activeCollection!.getKeySound());
 		}

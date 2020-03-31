@@ -3,7 +3,7 @@
 	"displayName": "TypewriterSounds",
 	"description": "Typewriter Sounds",
 	"publisher": "deviltry",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -24,7 +24,55 @@
 				"command": "typewritersounds.disable",
 				"title": "TypewriterSounds: Disable"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Typewriter Sounds",
+			"properties": {
+				"typewritersounds.enabled": {
+					"type": "boolean",
+					"default": false,
+					"description": "Typewriter sound ON/OFF"
+				},
+				"typewritersounds.theme": {
+					"type": "string",
+					"default": "default",
+					"enum": [
+						"default"
+					],
+					"description": "Typewriter sound theme"
+				},
+				"typewritersounds.longEnterSound": {
+					"type": "string",
+					"default": "random",
+					"enum": [
+						"off",
+						"random",
+						"only"
+					],
+					"enumDescriptions": [
+						"Don't play long ENTER sound ever",
+						"Play long ENTER sound randomly (mixed with short ENTER sound)",
+						"Play long ENTER sound only (no short ENTER sound)"
+					],
+					"description": "There's two sounds for ENTER key - long one and short one, configure whether you want to hear long sound at random, never, or only it."
+				},
+				"typewritersounds.longDeleteSound": {
+					"type": "string",
+					"default": "random",
+					"enum": [
+						"off",
+						"random",
+						"only"
+					],
+					"enumDescriptions": [
+						"Don't play long DELETE sound ever",
+						"Play long DELETE sound randomly (mixed with short DELETE sound)",
+						"Play long DELETE sound only (no short DELETE sound)"
+					],
+					"description": "There's two sounds for DELETE/BACKSPACE key - long one and short one, configure whether you want to hear long sound at random, never, or only it."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
