@@ -1,27 +1,33 @@
 # TypewriterSounds README
 
-Hello and this is the README for your extension "typewritersounds". After writing up a brief description, we recommend including the following sections.
+Typewriter Sounds extension for Visual Studio Code.
 
 ## Features
 
-features bla bla
+You press a key and computer plays typewriter sound.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+macOS.
 
 ## Extension Settings
 
-Two settings, enable disable
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.disable`: set to `blah` to do something
+There's two commands: **Typewriter Sounds: Enable** and **Typewriter Sounds: Disable**. Self explanatory.
+Go to settings to see more customization options - changing typewriter sound theme, changing long sound behavior, etc.
 
 ## Known Issues
 
-Windos doesn't work
+Windows doesn't work, most likely. Linux not tested - might also not work.
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
-Initial release of
+Initial release with one theme and two commands
+
+### 0.0.2
+
+Added settings
+
+### 0.0.3
+Added new typewriter themes: cheap, classic and expensive

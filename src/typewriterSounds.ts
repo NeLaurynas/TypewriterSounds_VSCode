@@ -26,6 +26,36 @@ class TypewriterSounds {
 			'enter_long'
 		));
 
+		this._sounds.set('cheap', new SoundCollection(
+			'cheap',
+			['1', '2', '3', '4', '5', '6'],
+			'enter_short',
+			'space',
+			'delete_short',
+			'delete_long',
+			'enter_long'
+		));
+
+		this._sounds.set('classic', new SoundCollection(
+			'classic',
+			['1', '2', '3', '4', '5', '6'],
+			'enter_short',
+			'space',
+			'delete_short',
+			'delete_long',
+			'enter_long'
+		));
+
+		this._sounds.set('expensive', new SoundCollection(
+			'expensive',
+			['1', '2', '3', '4', '5', '6'],
+			'enter_short',
+			'space',
+			'delete_short',
+			'delete_long',
+			'enter_long'
+		));
+
 		this.reloadConfig();
 	}
 
