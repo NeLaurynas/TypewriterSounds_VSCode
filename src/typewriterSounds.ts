@@ -48,7 +48,27 @@ class TypewriterSounds {
 
 		this._sounds.set('expensive', new SoundCollection(
 			'expensive',
-			['1', '2', '3', '4', '5', '6'],
+			['1', '2', '3', '4', '5', '6', '7', '8'],
+			'enter_short',
+			'space',
+			'delete_short',
+			'delete_long',
+			'enter_long'
+		));
+
+		this._sounds.set('office', new SoundCollection(
+			'office',
+			['1', '2', '3', '4', '5', '6', '7'],
+			'enter_short',
+			'space',
+			'delete_short',
+			'delete_long',
+			'enter_long'
+		));
+
+		this._sounds.set('fancy', new SoundCollection(
+			'fancy',
+			['1', '2', '3', '4', '5', '6', '7', '8'],
 			'enter_short',
 			'space',
 			'delete_short',
