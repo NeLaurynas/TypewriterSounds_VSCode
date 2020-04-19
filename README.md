@@ -35,3 +35,5 @@ Added new typewriter themes: cheap, classic and expensive
 ### 0.0.4
 Added new typewriter themes: office, fancy.
 Shortened audio clips - pause between key down and up was shortened
+
+This list should be reversed though
